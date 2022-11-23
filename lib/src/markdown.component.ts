@@ -164,12 +164,9 @@ export class MarkdownComponent implements OnChanges, AfterViewInit, OnDestroy {
       mermaid: this.mermaid,
       mermaidOptions: this.mermaidOptions,
     };
-
     const useBasePath = this.enableBasePath && this.src;
-    const baseUrl = this.src ? new URL(this.src, location.origin).pathname : '';
-    const parsed = !useBasePath
-      ? this.markdownService.parse(markdown, parsedOptions)
-      : this.markdownService.parse(markdown, parsedOptions, { baseUrl });
+    const baseUrl = this.src;
+    const parsed = this.markdownService.parse(markdown, parsedOptions, { baseUrl });
 
     this.element.nativeElement.innerHTML = parsed;
 
