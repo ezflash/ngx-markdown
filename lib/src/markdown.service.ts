@@ -271,7 +271,6 @@ export class MarkdownService {
     const urlWithoutProtocol = urlProtocolIndex > -1
       ? src.substring(urlProtocolIndex + 4)
       : src;
-
     const lastSlashIndex = urlWithoutProtocol.lastIndexOf('/');
     const lastUrlSegment = lastSlashIndex > -1
       ? urlWithoutProtocol.substring(lastSlashIndex + 1).split('?')[0]
